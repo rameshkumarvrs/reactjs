@@ -1,11 +1,14 @@
-const course = "Reactjs"
+import HTML from './assets/174854.png'
 
-function Course() {
+
+const course = "Html5"
+
+function Course(props) {
     return(
         <div className="card">
-            
-            <h3>{course}</h3>
-            <p>This is {2+5} course</p>
+            <img src={HTML} alt="" />
+            <h3>{props.name}</h3>
+            <p> {props.description} </p>
         </div>
     );
 }
