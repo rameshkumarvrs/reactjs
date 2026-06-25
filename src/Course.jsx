@@ -1,21 +1,23 @@
 
 
 
-const course = "Html5"
+
 
 function Course(props) {
 
-   if(props.show){
+  
 
      return(
         <div className="card">
-            <img src={props.img} alt="" />
+            <img src={props.image} alt="" />
             <h3>{props.name}</h3>
-            <p> {props.description} </p>
+            <p> {props.price} </p>
+            <p> {props.rating} </p>
         </div>
+        
     );
 
-   }
+
    
 }
 
