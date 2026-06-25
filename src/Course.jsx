@@ -1,16 +1,22 @@
-import HTML from './assets/174854.png'
+
 
 
 const course = "Html5"
 
 function Course(props) {
-    return(
+
+   if(props.show){
+
+     return(
         <div className="card">
-            <img src={HTML} alt="" />
+            <img src={props.img} alt="" />
             <h3>{props.name}</h3>
             <p> {props.description} </p>
         </div>
     );
+
+   }
+   
 }
 
 export default Course
