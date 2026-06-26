@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import html from './assets/174854.png'
 import css from './assets/css.png'
 import js from './assets/js.png'
@@ -8,7 +9,7 @@ import Course from './Course';
 
 function CourseList() {
 
-    const courses = [
+    const [courses, setCourses] = useState([
 
         {
             id: 1,
@@ -39,14 +40,20 @@ function CourseList() {
 
         {
             id: 4,
-            name: "",
+            name: "Reactjs",
             price: 199,
             image: js,
             rating: 3,
 
         }
 
-    ]
+    ])
+
+
+    function handleDelete(id){
+        const new_courses = courses.filter((course) => id != course.id )
+        setCourses(new_courses)
+    }
 
 
     //courses.sort((x,y) => y.price - x.price )
@@ -61,7 +68,10 @@ function CourseList() {
       name={course.name} 
       price= {course.price} 
       image={course.image} 
-      rating={course.rating}/>
+      rating={course.rating}
+      id = {course.id}
+      delete = {handleDelete}
+      />
 
     )
 
