@@ -12,8 +12,19 @@ function Course(props) {
   
   function handleClick(val, e) {
 
-   console.log(e)
-   setPurchased(true)
+   console.log(setPurchased)
+   
+  }
+
+
+    const[price, setdiscountPrice] = useState()
+
+  function handleDiscount(){
+    const discount = props.price
+     const f_discount = discount / 2
+
+    setdiscountPrice(f_discount)
+
   }
 
 
@@ -25,6 +36,8 @@ function Course(props) {
             <p> {props.rating} </p>
             <button onClick={(event) => handleClick("ramesh", event)} >Clisck me da</button>
             <p>{purchased ? "you have aready purchased" : "buy now" }</p>
+            <button onClick={() => handleDiscount(props.price)}>Apply discount</button>
+            <p>DiscountPrice, {price}</p>
         </div>
         
     );
