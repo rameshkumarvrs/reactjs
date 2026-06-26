@@ -49,13 +49,13 @@ function CourseList() {
     ]
 
 
-    courses.sort((x,y) => y.price - x.price )
+    //courses.sort((x,y) => y.price - x.price )
 
-    const vfmCourses = courses.filter((cou) => cou.name != "Css full course")
+    //const vfmCourses = courses.filter((cou) => cou.name != "Css full course")
 
-    courses.sort((x,y) => x.rating-y.rating)
+    //courses.sort((x,y) => x.rating-y.rating)
 
-    const coursesList = vfmCourses.map((course) => 
+    const coursesList = courses.map((course) => 
       <Course 
       key = {course.id}
       name={course.name} 
