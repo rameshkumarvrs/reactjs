@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -12,9 +12,15 @@ function Course(props) {
   
   function handleClick(val, e) {
 
-   console.log(setPurchased)
+   console.log(val)
    
   }
+
+
+  useEffect(()=>{
+    console.log("ochaye coursela")
+    console.log(purchased)
+  })
 
 
     

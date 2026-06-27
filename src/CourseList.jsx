@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import html from './assets/174854.png'
 import css from './assets/css.png'
 import js from './assets/js.png'
@@ -54,6 +54,16 @@ function CourseList() {
         const new_courses = courses.filter((course) => id != course.id )
         setCourses(new_courses)
     }
+
+    useEffect(() => {
+
+        fetch("https://jsonplaceholder.typicode.com/posts")
+        .then((response)=> {
+            console.log(response);
+         return response.json()
+        }).then(data => console.log(data))
+        
+    },[])
 
 
     //courses.sort((x,y) => y.price - x.price )
