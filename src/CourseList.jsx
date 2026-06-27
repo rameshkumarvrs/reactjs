@@ -20,6 +20,9 @@ function CourseList() {
 
         fetch("http://localhost:3001/courses")
         .then((response)=> {
+            if(!response.ok){
+                throw Error("this url end point is not valid")
+            }
             console.log(response);
          return response.json()
         }).then(data => setCourses(data))
