@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import html from './assets/174854.png'
-import css from './assets/css.png'
-import js from './assets/js.png'
+
 
 
 import Course from './Course';
@@ -9,45 +7,8 @@ import Course from './Course';
 
 function CourseList() {
 
-    const [courses, setCourses] = useState([
-
-        {
-            id: 1,
-            name: "Htmlfull course",
-            price: 199,
-            image: html,
-            rating: 5,
-
-        },
-
-        {
-            id: 2,
-            name: "Css full course",
-            price: 299,
-            image: css,
-            rating: 4,
-
-        },
-
-        {
-            id: 3,
-            name: "JS full course",
-            price: 199,
-            image: js,
-            rating: 3,
-
-        },
-
-        {
-            id: 4,
-            name: "Reactjs",
-            price: 199,
-            image: js,
-            rating: 3,
-
-        }
-
-    ])
+    const [courses, setCourses] = useState(null)
+    const [error, setError] = useState(null)
 
 
     function handleDelete(id){
@@ -57,11 +18,14 @@ function CourseList() {
 
     useEffect(() => {
 
-        fetch("https://jsonplaceholder.typicode.com/posts")
+        fetch("http://localhost:3001/courses")
         .then((response)=> {
             console.log(response);
          return response.json()
-        }).then(data => console.log(data))
+        }).then(data => setCourses(data))
+        .catch((error) => {
+            setError(error.message)
+        })
         
     },[])
 
@@ -71,6 +35,14 @@ function CourseList() {
     //const vfmCourses = courses.filter((cou) => cou.name != "Css full course")
 
     //courses.sort((x,y) => x.rating-y.rating)
+
+    if(!courses){
+        return(
+            <>
+            <p>{error}</p>
+            </>
+        )
+    }
 
     const coursesList = courses.map((course) => 
       <Course 
@@ -94,3 +66,5 @@ function CourseList() {
 }
 
 export default CourseList
+
+//npx json-server --watch data/dummyData.json --port 3001 --static ./data
