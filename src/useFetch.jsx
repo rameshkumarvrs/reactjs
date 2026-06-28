@@ -24,13 +24,13 @@ const useFetch = (url) => {
             setError(error.message)
         })
     
-    }, 3000)
+    }, 1000)
         
     },[])
     
   
   //return [courses, error]
-  return { courses, error, setCourses }
+  return [ courses, error, setCourses ]
 }
  
 

@@ -9,7 +9,7 @@ import useFetch from './useFetch';
 function CourseList() {
 
    
-   const {courses, error, setCourses} = useFetch("http://localhost:3001/courses")
+   const [courses, error, setCourses] = useFetch("http://localhost:3001/courses")
 
     function handleDelete(id){
         const new_courses = courses.filter((course) => id != course.id )
