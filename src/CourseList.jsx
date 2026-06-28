@@ -3,35 +3,21 @@ import { useState, useEffect } from 'react';
 
 
 import Course from './Course';
+import useFetch from './useFetch';
 
 
 function CourseList() {
 
-    const [courses, setCourses] = useState(null)
-    const [error, setError] = useState(null)
-
+   
+   const {courses, error, setCourses} = useFetch("http://localhost:3001/courses")
 
     function handleDelete(id){
         const new_courses = courses.filter((course) => id != course.id )
         setCourses(new_courses)
     }
 
-    useEffect(() => {
-
-        fetch("http://localhost:3001/courses")
-        .then((response)=> {
-            if(!response.ok){
-                throw Error("this url end point is not valid")
-            }
-            console.log(response);
-         return response.json()
-        }).then(data => setCourses(data))
-        .catch((error) => {
-            setError(error.message)
-        })
-        
-    },[])
-
+    
+    
 
     //courses.sort((x,y) => y.price - x.price )
 
@@ -42,7 +28,8 @@ function CourseList() {
     if(!courses){
         return(
             <>
-            <p>{error}</p>
+            {!error && <img src="/assets/loading.gif" alt="" />}
+            {error && <p>{error}</p>}
             </>
         )
     }
