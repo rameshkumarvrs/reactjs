@@ -5,6 +5,8 @@ const Login = () => {
     const [pwd1, setPwd1] = useState("")
     const [pwd2, setPwd2] = useState("")
 
+    const [same, setSame] = useState(true)
+
 
     function handlePwd1Change (e) {
        setPwd1(e.target.value)
@@ -15,18 +17,20 @@ const Login = () => {
       function handlePwd2Change (e) {
        setPwd2(e.target.value)
      console.log(pwd1,pwd2)
+
+     if(pwd1 == e.target.value){
+            console.log("same")
+            setSame(true)
+        }
+        else{
+            console.log("Not same")
+            setSame(false)
+        }
       
     }
 
      
-    function handlePwdCheck(){
-        if(pwd1 == pwd2){
-            console.log("same")
-        }
-        else{
-            console.log("Not same")
-        }
-    }
+    
 
 
   return (
@@ -48,10 +52,12 @@ const Login = () => {
             <input value={pwd2} onChange={handlePwd2Change} type="password" className="form-control" />
         </div>
         <div className="mb-3 form-check">
-            <input type="checkbox" onChange= {handlePwdCheck} className="form-check-input" id="exampleCheck1" />
+            <input type="checkbox"  className="form-check-input" id="exampleCheck1" />
             <label className="form-check-label" >I agree</label>
             {console.log(pwd1,pwd2)}
         </div>
+        
+        {!same && <p>Passwords miss match</p>}
         <button type="submit" className="btn btn-primary">Create Account</button>
 </form>
 
