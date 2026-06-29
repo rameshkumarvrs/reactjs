@@ -1,25 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Login = () => {
+
+    const [pwd1, setPwd1] = useState("")
+    const [pwd2, setPwd2] = useState("")
+
+
+    function handlePwd1Change (e) {
+       setPwd1(e.target.value)
+
+      console.log(e.target.value)
+    }
+
+      function handlePwd2Change (e) {
+       setPwd2(e.target.value)
+     console.log(e.target.value)
+      
+    }
+
+
   return (
     <>
     
 
     <form className="my-5" style={{width:"50%", margin:"auto"}}>
-        <div class="mb-3">
+        <div className="mb-3">
             <label  className="form-label">Email address</label>
             <input type="email" className="form-control"  />
             
         </div>
-        <div class="mb-3">
-            <label  class="form-label">Password</label>
-            <input type="password" className="form-control" />
+        <div className="mb-3">
+            <label  className="form-label">Password</label>
+            <input value={pwd1} onChange={handlePwd1Change} type="password" className="form-control" />
         </div>
-        <div class="mb-3">
-            <label  class="form-label">Re-enter-Password</label>
-            <input type="password" className="form-control" />
+        <div className="mb-3">
+            <label  className="form-label">Re-enter-Password</label>
+            <input value={pwd2} onChange={handlePwd2Change} type="password" className="form-control" />
         </div>
-        <div class="mb-3 form-check">
+        <div className="mb-3 form-check">
             <input type="checkbox" className="form-check-input" id="exampleCheck1" />
             <label className="form-check-label" >I agree</label>
         </div>
