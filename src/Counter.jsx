@@ -16,7 +16,7 @@ const Counter = () => {
 
     useEffect(() => {
         console.log(counter)
-    }, [counter])
+    })
 
   return (
    <>

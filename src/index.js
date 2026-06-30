@@ -8,6 +8,7 @@ import Home from './Home';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' 
 import NotFount from './NotFount';
 import Counter from './Counter';
+import Post from './Post';
 
 const router = createBrowserRouter([
 
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
   {
     path : "/counter",
     element : <Counter />
+  },
+
+  {
+    path : "/post",
+    element : <Post />
   }
 
 ]);

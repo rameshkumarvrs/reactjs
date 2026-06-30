@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Login from './Login'
 
 
@@ -7,9 +7,12 @@ import Login from './Login'
 export const dataContext = createContext()
 
 
+
+
 const Home = () => {
 
   const [posts, setPosts] = useState(null)
+  const navigate = useNavigate();
 
    const data = "ultabulta ocjhaye"
 
@@ -52,19 +55,19 @@ const Home = () => {
     
 
     <div className="container">
-       <Link to='/login'>Login</Link>
+       {/* <Link to='/login'>Login</Link> */}
 
   
       <dataContext.Provider value={data}>
-       <Login />
+       {/* <Login /> */}
       </dataContext.Provider>
 
 
 
 
-       <div className='row jsutify-content-center m-3'>
+       <div className='row jsutify-content-center m-3' >
         {posts && posts.map((post) =>(
-         <div key={post.id} className='card m-3' style={{width: '18rem'}}>
+         <div key={post.id} className='card m-3' style={{width: '18rem'}} onClick={()=> navigate('/post')}>
          <div>
           <h5 className='card-title'>{post.title}</h5>
           <p className='card-text'>{post.body}</p>
