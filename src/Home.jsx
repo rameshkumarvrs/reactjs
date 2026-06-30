@@ -67,7 +67,7 @@ const Home = () => {
 
        <div className='row jsutify-content-center m-3' >
         {posts && posts.map((post) =>(
-         <div key={post.id} className='card m-3' style={{width: '18rem'}} onClick={()=> navigate('/post')}>
+         <div key={post.id} className='card m-3' style={{width: '18rem'}} onClick={()=> navigate('/post/'+post.id)}>
          <div>
           <h5 className='card-title'>{post.title}</h5>
           <p className='card-text'>{post.body}</p>
