@@ -6,6 +6,7 @@ import Login from './Login';
 import reportWebVitals from './reportWebVitals';
 import Home from './Home';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' 
+import NotFount from './NotFount';
 
 const router = createBrowserRouter([
 
@@ -15,7 +16,13 @@ const router = createBrowserRouter([
   }, 
   {
     path : "/login",
-    element : <Login />
+    element : <Login />,
+    
+  },
+
+  {
+    path : "*",
+    element: <NotFount/>
   }
 
 ]);
