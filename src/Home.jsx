@@ -7,12 +7,15 @@ const Home = () => {
 
 
   useEffect(() => {
+
+     const controller = new AbortController()
+     const signal = controller.signal
          
          setTimeout(() => {
           
          
   
-          fetch("http://localhost:3001/posts")
+          fetch("http://localhost:3001/posts", {signal})
           .then((response)=> {
               if(!response.ok){
                   throw Error("this url end point is not valid")
@@ -30,6 +33,7 @@ const Home = () => {
      // Clean up function
      return () => {
       console.log('unmounted')
+      controller.abort();
      }
           
       },[])

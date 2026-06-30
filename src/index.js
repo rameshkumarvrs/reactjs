@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import Home from './Home';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' 
 import NotFount from './NotFount';
+import Counter from './Counter';
 
 const router = createBrowserRouter([
 
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
   {
     path : "*",
     element: <NotFount/>
+  },
+
+  {
+    path : "/counter",
+    element : <Counter />
   }
 
 ]);
