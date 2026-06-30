@@ -1,10 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, createContext } from 'react'
 import { Link } from 'react-router-dom'
+import Login from './Login'
+
+
+
+export const dataContext = createContext()
+
 
 const Home = () => {
 
   const [posts, setPosts] = useState(null)
 
+   const data = "ultabulta ocjhaye"
 
   useEffect(() => {
 
@@ -42,9 +49,19 @@ const Home = () => {
 
 
   return (
+    
 
     <div className="container">
        <Link to='/login'>Login</Link>
+
+  
+      <dataContext.Provider value={data}>
+       <Login />
+      </dataContext.Provider>
+
+
+
+
        <div className='row jsutify-content-center m-3'>
         {posts && posts.map((post) =>(
          <div key={post.id} className='card m-3' style={{width: '18rem'}}>

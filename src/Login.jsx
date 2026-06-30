@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import Counter from './Counter'
+import { dataContext } from './Home'
 
 const Login = () => {
 
+
+    const data = useContext(dataContext)
     const [pwd1, setPwd1] = useState("")
     const [pwd2, setPwd2] = useState("")
 
@@ -35,7 +39,7 @@ const Login = () => {
 
   return (
     <>
-    
+    <Counter />
 
     <form className="my-5" style={{width:"50%", margin:"auto"}}>
         <div className="mb-3">
@@ -59,6 +63,8 @@ const Login = () => {
         
         {!same && <p>Passwords miss match</p>}
         <button type="submit" className="btn btn-primary">Create Account</button>
+
+        <p>{data}</p>
 </form>
 
 
